@@ -11,6 +11,8 @@
     <title>Title</title>
 </head>
 <body>
-Hello world! Java!!! F**k y**!
+<h1>
+    Hello world! Java!!! F**k y**!
+</h1>
 </body>
 </html>
