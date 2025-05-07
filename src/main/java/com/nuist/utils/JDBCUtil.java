@@ -17,8 +17,8 @@ public class JDBCUtil {
     static {
         try{
             // 1.定位路径
-            InputStream inputStream = new FileInputStream("D:/NUIST/Java/Projects/maven-test/src/main/resources/config/jdbc.properties");
-//            InputStream inputStream = JDBCUtil.class.getClassLoader().getResourceAsStream("src/main/resources/config/jdbc.properties");
+//            InputStream inputStream = new FileInputStream("D:/NUIST/Java/Projects/maven-test/src/main/resources/config/jdbc.properties");
+            InputStream inputStream = JDBCUtil.class.getClassLoader().getResourceAsStream("config/jdbc.properties");
             // 2.加载配置文件
             Properties prop = new Properties();
             System.out.println(inputStream);
