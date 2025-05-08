@@ -204,6 +204,17 @@
                 padding: 30px;
             }
         }
+
+        .password-feedback {
+            font-size: 12px;
+            margin-top: -15px;
+            margin-bottom: 15px;
+            padding-left: 20px;
+            display: none;
+        }
+
+        .match { color: #28a745; }
+        .mismatch { color: #dc3545; }
     </style>
 </head>
 
@@ -264,11 +275,12 @@
             </div>
 
             <div class="input-group">
-                <input type="password" id="register-confirm-password" required>
+                <input type="password" id="register-confirm-password" required oninput="checkPasswordMatch()">
                 <label for="register-confirm-password">确认密码</label>
+                <div class="password-feedback" id="password-feedback"></div>
             </div>
 
-            <button type="submit" class="btn">注册</button>
+            <button type="submit" class="btn" >注册</button>
 
             <div class="toggle-container">
                 <label for="login" class="toggle">已有账号？立即登录</label>
@@ -276,6 +288,30 @@
         </form>
     </div>
 </div>
+
+<script>
+    function checkPasswordMatch() {
+        const password = document.getElementById('register-password').value;
+        const confirm = document.getElementById('register-confirm-password').value;
+        const feedback = document.getElementById('password-feedback');
+
+        if (confirm.length === 0) {
+            feedback.style.display = 'none';
+            return;
+        }
+
+        feedback.style.display = 'block';
+
+        if (password === confirm) {
+            feedback.textContent = '✓ 密码匹配';
+            feedback.className = 'password-feedback match';
+        } else {
+            feedback.textContent = '✗ 密码不一致';
+            feedback.className = 'password-feedback mismatch';
+        }
+    }
+
+</script>
 
 <!-- 字体图标（实际使用时建议本地引入） -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
